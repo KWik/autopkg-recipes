@@ -36,7 +36,7 @@
                 <key>input_path</key>
                 <string>%pathname%/Vectorworks 2021 Installer.app</string>
                 <key>requirement</key>
-                <string>identifier "net.nemetschek.2021.vectorworksinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
+                <string>identifier "net.vectorworks.2021.vectorworksinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
                 <key>strict_verification</key>
                 <true/>
             </dict>
@@ -49,7 +49,7 @@
                 <key>input_path</key>
                 <string>%pathname%/Vectorworks 2021 Installer.app/Contents/Resources/installer/Install Vectorworks2021.app</string>
                 <key>requirement</key>
-                <string>identifier "com.bitrock.appinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
+                <string>identifier "com.installbuilder.appinstaller" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = LFNG3Q6WX2</string>
                 <key>strict_verification</key>
                 <true/>
             </dict>
