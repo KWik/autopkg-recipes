@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Vectorworks 2021 NNA.</string>
     <key>Identifier</key>
-    <string>no.hovedkvarteret.download.Vectorworks2021-NNA</string>
+    <string>com.github.kwik.download.Vectorworks2021-NNA</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
