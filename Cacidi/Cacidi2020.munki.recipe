@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Import Cacidi Extreme CC2020 into Munki</string>
+	<key>Identifier</key>
+	<string>com.github.kwik.munki.cacidi2020</string>
+	<key>Input</key>
+	<dict>
+        <key>NAME</key>
+        <string>Cacidi_Extreme_CC2020</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>plugins</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Cacidi is a plugin for Adobe InDesign CC2020</string>
+            <key>display_name</key>
+            <string>Cacidi Extreme CC2020</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.kwik.download.cacidi2020</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/expanded</string>
+				<key>flat_pkg_path</key>
+				<string>%pathname%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>com.facebook.autopkg.shared/PackageInfoVersioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>package_info_path</key>
+				<string>%RECIPE_CACHE_DIR%/expanded/Cacidi_Extreme_CC.pkg/PackageInfo</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileMover</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%pathname%</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
+            </dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%.pkg</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>
