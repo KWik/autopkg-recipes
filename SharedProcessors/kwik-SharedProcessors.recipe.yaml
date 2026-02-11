@@ -1,0 +1,5 @@
+Description: Dummy recipe for referencing shared processors in this directory.
+Identifier: com.github.kwik.SharedProcessors
+Input:
+MinimumVersion: '2.3'
+Process:

@@ -1,0 +1,1 @@
+/tmp/dumpargs.py package --type=pkg --fleet-url=fleetdm-test.uio.no --enroll-secret=wrong
