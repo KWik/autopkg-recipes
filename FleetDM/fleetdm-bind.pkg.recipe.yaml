@@ -1,0 +1,17 @@
+Description: Downloads the latest version of fleetctl and ...
+Identifier: com.github.kwik.pkg.fleetdm-bind
+Input:
+  NAME: fleetctl
+  FLEET_SERVER_URL: 'https://example.com'
+  FLEET_SERVER_ENROLL_SECRET: 'replace this in override'
+MinimumVersion: '2.3'
+ParentRecipe: com.github.kitzy.download.fleetctl
+Process:
+- Processor: EndOfCheckPhase
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_v*_macos/%NAME%'
+    find_method: glob
+- Processor: com.github.kwik.SharedProcessors/FleetBindPkg
+  Arguments:
+    fleetctl_path: '%found_filename%'

@@ -1,0 +1,11 @@
+Description: Downloads the latest version of fleetctl and ...
+Identifier: com.github.kwik.munki.fleetdm-bind
+Input:
+ParentRecipe: com.github.kwik.pkg.fleetdm-bind
+Process:
+- Processor: EndOfCheckPhase
+- Processor: MunkiImporter
+  Arguments:
+    pkg_path: '%fleetpkg%'
+
+    
