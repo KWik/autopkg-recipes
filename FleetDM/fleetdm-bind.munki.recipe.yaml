@@ -1,10 +1,24 @@
 Description: Downloads the latest version of fleetctl and ...
 Identifier: com.github.kwik.munki.fleetdm-bind
 ParentRecipe: com.github.kwik.pkg.fleetdm-bind
+MinimumVersion: 2.4.0
+
+Input:
+  NAME: 'fleetdm-bind'
+  MUNKI_REPO_SUBDIR: 'utilities/fleetdm-bind'
+  pkginfo:
+    catalogs:
+      - testing
+    category: Utilities
+    description: FleetDM binding ties a client to a FleetDM osquery server.
+    developer: FleetDM
+    display_name: 'FleetDM %NAME%' 
+    name: '%NAME%'
+    unattended_install: true
+    unattended_uninstall: true
+    
 Process:
-- Processor: EndOfCheckPhase
 - Processor: MunkiImporter
   Arguments:
     pkg_path: '%fleetpkg%'
-
     
