@@ -45,10 +45,14 @@ class FleetBindPkg(Processor):
 
     output_variables = {
         "fleetbindpkg": { "description": "Path to fleetdm pkg" },
-        "fleetctl_version": { "description": "Version of fleetctl" }
+        "fleetctl_version": { "description": "Version of fleetctl" },
+        "fleetdm_hostname": {"description": "FleetDM hostname"},
+        "fleetdm_fqdn": {"description": "FleetDM fqdn"}
     }
 
     def main(self):
+        if not self.env.get("RECIPE_CACHE_DIR"):
+            self.env["RECIPE_CACHE_DIR"] = "~/Library/AutoPkg/Cache"
         try:
             # Anything vital must be within the try
             fleet_url = self.env["FLEET_SERVER_URL"]
@@ -56,6 +60,7 @@ class FleetBindPkg(Processor):
             fleet_server_url = self.env["FLEET_SERVER_URL"]
             fleetctl = pathlib.Path(self.env["fleetctl_path"])
 
+            fleet_server_fqdn = fleet_server_url.split('/')[-1]
             fleet_server_hostname = fleet_server_url.split('.')[0].split('/')[-1]
 
             outdir = pathlib.Path(self.env["RECIPE_CACHE_DIR"]) / self.env["NAME"]
@@ -91,6 +96,8 @@ class FleetBindPkg(Processor):
             raise ProcessorError(err)
         self.env["fleetbindpkg"] = f'{pkg_path}'
         self.env["fleetctl_version"] = self.env["version"].split('v')[-1]
+        self.env["fleetdm_hostname"] = fleet_server_hostname
+        self.env["fleetdm_fqdn"] = fleet_server_fqdn
         
 if __name__ == "__main__":
     PROC = FleetBindPkg()
