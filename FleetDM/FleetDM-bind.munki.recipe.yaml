@@ -4,18 +4,7 @@ ParentRecipe: com.github.kwik.pkg.fleetdm-bind
 MinimumVersion: 2.4.0
 
 Input:
-  NAME: FleetDM Bind
   MUNKI_REPO_SUBDIR: 'utilities/fleetdm-bind'
-  pkginfo:
-    catalogs:
-      - testing
-    category: Utilities
-    description: FleetDM binding ties a client to a FleetDM (osquery) server.
-    developer: FleetDM
-    display_name: 'FleetDM %NAME%' 
-    name: '%NAME%'
-    unattended_install: true
-    unattended_uninstall: true
     
 Process:
 - Processor: MunkiImporter
