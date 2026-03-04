@@ -9,5 +9,5 @@ Input:
 Process:
 - Processor: MunkiImporter
   Arguments:
-    pkg_path: '%fleetpkg%'
+    pkg_path: '%fleetbindpkg%'
     
