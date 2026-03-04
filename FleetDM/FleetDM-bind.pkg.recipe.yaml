@@ -4,7 +4,6 @@ ParentRecipe: com.github.kitzy.download.fleetctl
 MinimumVersion: 2.4.0
 
 Input:
-  NAME: FleetDM Bind
   FLEET_SERVER_URL: 'https://example.com'
   FLEET_SERVER_ENROLL_SECRET: 'replace this in override'
 
