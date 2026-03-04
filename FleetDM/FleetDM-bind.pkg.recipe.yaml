@@ -10,7 +10,7 @@ Input:
 Process:
 - Processor: FileFinder
   Arguments:
-    pattern: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_v*_macos/%NAME%'
+    pattern: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_v*_macos/fleetctl'
     find_method: glob
 - Processor: com.github.kwik.SharedProcessors/FleetBindPkg
   Arguments:
